@@ -18,7 +18,6 @@ public abstract class BoardMapper {
      * @param to - to-модель доски
      * @return entity с проставленными полями
      */
-    @Mapping(target = "name", source = "name")
     @Mapping(target = "projectId", source = "project.id")
     public abstract BoardEntity mapFromTo(BoardTo to);
 }
