@@ -72,7 +72,7 @@ public class BoardCreateUseCase {
      *
      * @param projectId - идентификатор проверяемого проекта
      */
-    private void checkProjectExist(UUID projectId) {
+    private void checkProjectExist(final UUID projectId) {
         try {
             ProjectTo project = projectApi.findProjectById(projectId);
             if (!Objects.equals(project.getId(), projectId)) {
