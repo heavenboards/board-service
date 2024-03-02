@@ -111,11 +111,11 @@ public class BoardCreateIntegrationTest {
     }
 
     /**
-     * Тест валидного создания доски.
+     * Тест создания доски с несуществующим проектом.
      */
     @Test
     @DisplayName("Тест создания доски с несуществующим проектом")
-    public void projectNonExistCreateTest() {
+    public void projectNotExistCreateTest() {
         securityTestUtil.securityContextHelper();
 
         ProjectTo project = ProjectTo.builder()
@@ -186,6 +186,7 @@ public class BoardCreateIntegrationTest {
             .header(new Header(HttpHeaders.AUTHORIZATION, securityTestUtil.authHeader()))
             .body(BoardTo.builder()
                 .name("Board name")
+                .positionWeight(1000)
                 .project(project)
                 .build())
             .when()
