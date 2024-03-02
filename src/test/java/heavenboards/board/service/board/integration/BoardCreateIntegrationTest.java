@@ -186,6 +186,7 @@ public class BoardCreateIntegrationTest {
             .header(new Header(HttpHeaders.AUTHORIZATION, securityTestUtil.authHeader()))
             .body(BoardTo.builder()
                 .name("Board name")
+                .positionWeight(1000)
                 .project(project)
                 .build())
             .when()

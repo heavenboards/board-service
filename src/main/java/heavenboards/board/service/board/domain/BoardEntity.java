@@ -42,6 +42,12 @@ public class BoardEntity {
     private UUID projectId;
 
     /**
+     * Вес позиции доски в проекте.
+     * Нужен для определения порядка отображения досок в проекте на UI.
+     */
+    private Integer positionWeight;
+
+    /**
      * Сравнение двух объектов через id.
      *
      * @param another - объект для сравнения
@@ -69,5 +75,20 @@ public class BoardEntity {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    /**
+     * Строковое отображение объекта.
+     *
+     * @return строковое отображение объекта
+     */
+    @Override
+    public String toString() {
+        return "BoardEntity{"
+            + "id=" + id
+            + ", name='" + name + '\''
+            + ", projectId=" + projectId
+            + ", positionWeight=" + positionWeight
+            + '}';
     }
 }
