@@ -20,4 +20,14 @@ public abstract class BoardMapper {
      */
     @Mapping(target = "projectId", source = "project.id")
     public abstract BoardEntity mapFromTo(BoardTo to);
+
+    /**
+     * Маппинг из entity в to.
+     *
+     * @param entity - сущность доски
+     * @return to-модель доски с проставленными полями
+     */
+    @Mapping(target = "project", ignore = true)
+    @Mapping(target = "groups", ignore = true)
+    public abstract BoardTo mapFromEntity(BoardEntity entity);
 }
