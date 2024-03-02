@@ -115,7 +115,7 @@ public class BoardCreateIntegrationTest {
      */
     @Test
     @DisplayName("Тест создания доски с несуществующим проектом")
-    public void projectNonExistCreateTest() {
+    public void projectNotExistCreateTest() {
         securityTestUtil.securityContextHelper();
 
         ProjectTo project = ProjectTo.builder()
