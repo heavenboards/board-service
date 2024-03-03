@@ -4,6 +4,7 @@ import heavenboards.board.service.board.domain.BoardRepository;
 import heavenboards.board.service.board.mapping.BoardMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import transfer.contract.domain.board.BoardTo;
 import transfer.contract.exception.BaseErrorCode;
 import transfer.contract.exception.ClientApplicationException;
@@ -32,6 +33,7 @@ public class BoardFindUseCase {
      * @param boardId - идентификатор доски
      * @return данные доски
      */
+    @Transactional(readOnly = true)
     public BoardTo findBoardById(final UUID boardId) {
         return boardRepository.findById(boardId)
             .map(boardMapper::mapFromEntity)
