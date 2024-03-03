@@ -5,6 +5,7 @@ import heavenboards.board.service.board.domain.BoardRepository;
 import heavenboards.board.service.board.mapping.BoardMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import transfer.contract.api.ProjectApi;
 import transfer.contract.domain.board.BoardOperationErrorCode;
 import transfer.contract.domain.board.BoardOperationResultTo;
@@ -46,6 +47,7 @@ public class BoardCreateUseCase {
      * @param board - to-модель создаваемой доски
      * @return результат операции создания
      */
+    @Transactional
     public BoardOperationResultTo createBoard(final BoardTo board) {
         Optional<BoardEntity> boardByNameAndProjectId = boardRepository
             .findByNameAndProjectId(board.getName(), board.getProject().getId());
